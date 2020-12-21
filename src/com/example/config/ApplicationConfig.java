@@ -14,6 +14,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -41,6 +43,15 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		return viewResolver;
 
 	}
+
+
+//	マルチパートviewリゾルバーを設定する
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
+
+	}
+
 
 
 //	静的ファイルの有効化をする
@@ -138,6 +149,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		factory.setMapperLocations(resolver.getResources("classpath:**/dao/**/*.xml"));
 	return factory;
 	}
+
 
 
 

@@ -1,6 +1,7 @@
 package com.example.config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -42,7 +43,22 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 
 //	アップロード用の設定
 	@Override
-	protected void coustomizeRegistration(Dynamic registration) {
+	protected void customizeRegistration(Dynamic registration) {
+//一時ファイルのロケーション
+		String location = "C:/temp";
+//		最大アップロードサイズ これは5M 一枚のサイズ
+		long maxFilesize = 5242880;
+//		フォーム全体でのサイズ　合計サイズ　画像だけでなく、文字つも含む
+		long maxRequestSize = 5242880;
+//		ファイルサイズスレッシュフォールド
+		int fileSizeThreshold = 0;
+
+		var config = new MultipartConfigElement(location,maxFilesize,maxRequestSize,fileSizeThreshold);
+
+//		設定を登録する
+		registration.setMultipartConfig(config);
+
+
 
 	}
 
