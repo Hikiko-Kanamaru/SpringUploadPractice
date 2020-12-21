@@ -49,7 +49,6 @@ public class ApplicationConfig implements WebMvcConfigurer {
 	@Bean
 	public MultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
-
 	}
 
 

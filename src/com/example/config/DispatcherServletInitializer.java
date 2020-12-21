@@ -17,12 +17,9 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-
-
-
-
-		return new Class[] {ApplicationConfig.class};
+		return new Class[] { ApplicationConfig.class };
 	}
+
 
 	@Override
 	protected String[] getServletMappings() {
@@ -45,15 +42,15 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 //一時ファイルのロケーション
-		String location = "C:/temp";
+		String location = "C:/Users/zd2H06/temp";
 //		最大アップロードサイズ これは5M 一枚のサイズ
-		long maxFilesize = 5242880;
+		long maxFileSize = 5242880;
 //		フォーム全体でのサイズ　合計サイズ　画像だけでなく、文字つも含む
 		long maxRequestSize = 5242880;
 //		ファイルサイズスレッシュフォールド
 		int fileSizeThreshold = 0;
 
-		var config = new MultipartConfigElement(location,maxFilesize,maxRequestSize,fileSizeThreshold);
+		var config = new MultipartConfigElement(location,maxFileSize,maxRequestSize,fileSizeThreshold);
 
 //		設定を登録する
 		registration.setMultipartConfig(config);

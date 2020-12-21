@@ -7,6 +7,28 @@
 </head>
 <body>
 <p>アップロードが完了しました</p>
+<table border="1">
+<tr>
+<th>ファイル名</th>
+<td>${fileName}</td>
+</tr>
+<tr>
+<th>種類</th>
+<td>${contentType}</td>
+</tr>
+<tr>
+<th>サイズ</th>
+<td>${fileSize}</td>
+</tr>
+
+
+
+
+
+</table>
+
+
+
 
 <p><a href="">戻る</a>
 </p>
